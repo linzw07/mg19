@@ -1,0 +1,124 @@
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+.mColorPicker {
+	width: 255px !important; 
+}
+.mColorPickerTrigger {
+	float: right;
+}
+.novaworks-radio {
+	margin-right: 20px;
+}
+.nova-thumb { 
+}
+.nova-radio {
+	margin-right:10px; 
+	margin-bottom:10px; 
+}
+/* Cart Icon */
+.nova-thumb > img { 
+	width:26px; 
+	height:30px;
+}
+#themeoptions_colors_styles_midsection_style_rating_stars_imgstars1 
+/* Sidebars */
+.sidebars-row {
+	overflow: hidden;
+}
+/* Background Paterns */
+.paterns-row {
+	height:365px;
+	overflow: auto;
+}
+.paterns-row .nova-thumb { 
+	width:40px; 
+	height:40px;
+}
+/**/
+.is-completed,
+.not-completed {
+	color: green;
+	font-size: 24px;
+	margin: 0.5em 0 1em;
+}
+
+.is-completed:before,
+.not-completed:before {
+	margin: -4px 10px 0 0;
+	font-family: 'dashicons';
+	content: "\f328";
+	border: 3px solid green;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 30px;
+	display: inline-block;
+	vertical-align: middle;`
+}
+
+.not-completed {
+	color: red;
+}
+
+.not-completed:before {
+	content: "\f158";
+	border-color: red;
+}
+.row-guide {
+	display: block;
+	border-top: #ccc solid 2px;
+	margin-top: 20px;
+}
+.button-row button {
+	margin-right: 10px;
+}
+p.note-guide {
+	font-size: 13px;
+	line-height: 1.5;
+	margin: 1em 0;
+}
+.button-guide {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ccc !important;
+	padding: 5px 10px;
+	background: #f7f7f7 !important;
+	color: #555;
+	font: bold 12px arial, helvetica, sans-serif;
+	cursor: pointer;
+	text-align: center !important;
+	white-space: nowrap;
+	box-shadow: inset 0 1px 0 #fff,0 1px 0 rgba(0,0,0,.08);
+	-moz-box-shadow: inset 0 1px 0 #fff,0 1px 0 rgba(0,0,0,.08);
+	-webkit-box-shadow: inset 0 1px 0 #fff,0 1px 0 rgba(0,0,0,.08);
+}
+.install-guide-content ul, .install-guide-content ol {
+	margin-left: 30px;
+}
+.install-guide-content ul {
+	list-style-type: circle;
+}
+.install-guide-content ol {
+	list-style-type: decimal;
+}

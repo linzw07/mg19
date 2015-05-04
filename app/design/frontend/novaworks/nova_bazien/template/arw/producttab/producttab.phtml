@@ -1,0 +1,52 @@
+<?php
+if(Mage::helper('producttab')->getEnableModule()){
+$effect=Mage::helper('producttab')->getEffect();
+$tabs=$this->getTabs();
+$tab_first_data=$this->getTabFirst();
+$tab_first_id=$tab_first_data['arw_tab_id'];
+$identifier=$this->getConfig('identifier');
+$enable_jquery=Mage::helper('producttab')->getEnableJquery();
+$enable_bootstrap=Mage::helper('producttab')->getEnableBootstrap();
+$_secure = Mage::app()->getStore()->isCurrentlySecure();
+$display_title = '';
+$i=0;
+?>
+<?php
+$display = $this->getArwDisplay();
+if(isset($display) && $this->getArwDisplay()== false) {
+    $display_title =  ' no-display';
+}
+$list_type = $this->getArwListtype();
+if($list_type=="1") {
+    $list_type =  ' list-unstyled';
+}
+?>
+<?php if($tabs->count()):?>
+<?php if($enable_jquery):?>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js')?>arw/producttab/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js')?>arw/producttab/jquery/jquery.noconflict.js"></script>
+<?php endif;?>
+<div class="arw_tab_title">
+	<div class="tab_title"><h2 class="title"><?php echo $this->getWidgetTitle();?></h2><p class=""></p></div>
+	<div class="tab_sub_title"><h2 class="title"><?php echo $this->getWidgetSubTitle();?></h2></div>
+</div>
+<div class="arw_tab_slider">
+	<ul class="slider-tab<?php echo $display_title; ?><?php echo $list_type; ?>">
+	<?php foreach($tabs as $tab):?>
+		<li id="tab_<?php echo $tab['arw_tab_id'];?>_<?php echo $identifier ?>" class="<?php if($tabs->count()==1){echo 'arw_custom_css';}?> <?php echo $i==0?' active first':(($i==count($tabs)-1)?'last':'')?>">
+			<a href="">
+				<span><?php echo $tab['arw_name'];?></span>
+			</a>
+		</li>
+	<?php $i++; endforeach;?>
+	</ul>
+	<?php foreach($tabs as $tab){?>
+		<?php if($tab_first_id==$tab['arw_tab_id']){?>
+			<div id="tab_<?php echo $tab['arw_tab_id']; ?>_<?php echo $identifier; ?>_contents"><?php echo $this->getPagerHtml() ?></div>
+		<?php }else{?>
+			<div id="tab_<?php echo $tab['arw_tab_id']; ?>_<?php echo $identifier; ?>_contents"></div>             
+	<?php }}?>
+	<div id="ajax_loading_tab" class="ajax_loading_tab"></div>
+</div>
+<?php endif;}?>
+<?php // duc?>

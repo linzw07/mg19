@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Novaworks_Setupguide>
+            <version>1.1.16</version>
+            <title>Setup Guide</title>
+            <link><![CDATA[http://www.novaworks.net/]]></link>
+        </Novaworks_Setupguide>
+    </modules>
+	
+    <global>
+        <blocks>
+            <setupguide>
+                <class>Novaworks_Setupguide_Block</class>
+            </setupguide>
+        </blocks>
+        <helpers>
+            <setupguide>
+                <class>Novaworks_Setupguide_Helper</class>
+            </setupguide>
+        </helpers>
+        <models>
+            <setupguide>
+                <class>Novaworks_Setupguide_Model</class>
+            </setupguide>
+        </models>
+        <resources>
+            <setupguide_setup>
+                <setup>
+                    <module>Novaworks_Setupguide_Codall</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </setupguide_setup>
+            <setupguide_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </setupguide_write>
+            <setupguide_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </setupguide_read>
+        </resources>
+    </global>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Novaworks_Setupguide>
+                    <files>
+                        <default>Novaworks_Setupguide.csv</default>
+                    </files>
+                </Novaworks_Setupguide>
+            </modules>
+        </translate>
+    </adminhtml>
+</config>

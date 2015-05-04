@@ -1,0 +1,151 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+
+ $storeId = Mage::app()->getStore()->getStoreId();
+ $routeName = Mage::app()->getRequest()->getRouteName();  
+ $identifier = Mage::getSingleton('cms/page')->getIdentifier();  
+
+ $gotop_button			=	Mage::getStoreConfig('themeoptions_general/general_options/gotop_button', $storeId);
+
+ $block_top_bar_left 	= $this->getLayout()->createBlock('cms/block')->setBlockId('block_top_bar_left')->toHtml();
+ $block_top_bar_center 	= $this->getLayout()->createBlock('cms/block')->setBlockId('block_top_bar_center')->toHtml();
+ $block_top_bar_right 	= $this->getLayout()->createBlock('cms/block')->setBlockId('block_top_bar_right')->toHtml();
+
+ $header_fixed			=	Mage::getStoreConfig('themeoptions_theming/theme_header/header_fixed', $storeId);
+
+ $media_path	   		= Mage::getBaseUrl('media') . 'theming/';
+ $site_logo 			= Mage::getStoreConfig('themeoptions_theming/design_logo/logo', $storeId);
+ $retina_logo 			= Mage::getStoreConfig('themeoptions_theming/design_logo/retina_logo', $storeId);
+
+
+?>
+ 
+<?php if ($block_top_bar_left || $block_top_bar_right): ?>
+
+<div class="promotions-txt-container">
+	<div class="container">
+		<div class="row">
+			<?php if ($block_top_bar_left): ?>
+			<div class="top-bar-left col-lg-6 col-md-6 col-sm-6">
+				<?php echo $block_top_bar_left;?>
+			</div>
+			<?php endif?>
+			
+			<?php if ($block_top_bar_right): ?>
+			<div class="top-bar-right col-lg-6 col-md-6 col-sm-6">
+				<?php echo $block_top_bar_right;?>
+			</div>
+			<?php endif?>
+		</div>
+	</div>
+</div>
+<?php endif?>
+
+<div class="header-container-3">
+	<!-- Top Header -->
+	<div class="top-header">
+		<!-- Header Top Links -->
+		<div class="header-links">	
+			<div class="account">	
+				<p class="label"><?php echo $this->__('My Account')?></p>						
+				<?php echo $this->getChildHtml('topLinks') ?>
+			</div>
+		</div> 
+		<!-- End Header Top Links -->
+
+		<!-- Header Language -->
+		<div class="store_language">
+			<?php echo $this->getChildHtml('store_language') ?>
+		</div>
+		<!-- End Header Language -->
+
+		<!-- Header Currency -->
+		<div class="currency">						
+			<?php echo $this->getChildHtml('currency') ?>	 
+		</div>
+		<!-- End Header Currency -->
+	</div>
+	<!-- End Top Header -->
+	<div class="nav-container">
+		<!-- Header -->
+		<div class="logo-fade" id="header-section">
+			<div class="col-md-12 col-sm-12">
+				<!-- Header Logo -->
+				<div class="header-logo">
+					<div class="logo-center clearfix" id="logo">
+		    			<h1 class="logo">
+			    			<a href="<?php echo $this->getUrl('') ?>">
+							<?php 
+							if($site_logo):
+							?>
+							<img alt="<?php echo $this->getLogoAlt() ?>" src="<?php echo $media_path.$site_logo ?>" class="standard" />
+							<?php
+							else:
+							?>
+							<img alt="<?php echo $this->getLogoAlt() ?>" src="<?php echo $this->getLogoSrc() ?>" class="standard" />
+							<?php 
+							endif;
+							if($retina_logo):	
+							?>
+							<img alt="<?php echo $this->getLogoAlt() ?>" src="<?php echo $media_path.$retina_logo ?>" class="retina" />
+							<?php endif;?>
+							</a>
+			    		</h1>
+			    	</div>
+				</div>
+				<!-- End Header Logo -->
+			</div>
+		</div>
+		<!-- End Header -->
+	</div>
+	<div class="main-navigation">
+		<!-- Header Top Menu -->
+		<div class="header-topMenu">
+			<div class="header-topMenu-inner">
+				<?php echo $this->getChildHtml('topMenu') ?>							
+			</div>
+		</div>
+		<!-- End Header Top Menu -->
+	</div>
+	<div id="cart" class="">
+		<?php echo $this->getChildHtml('top_cart_sidebar') ?>
+	</div>
+
+	<!-- Search-col -->
+	<div class="top-search">
+		<div class="menu">
+			<?php echo $this->getChildHtml('topSearch') ?>
+		</div>
+	</div>
+	<!-- End Search-col -->
+</div>
+
+
+
+

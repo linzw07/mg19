@@ -1,0 +1,96 @@
+
+<?php 
+$storeId = Mage::app()->getStore()->getStoreId();
+$expires = Mage::getStoreConfig('themeoptions_general/newsletter/cookielifetime', $storeId);
+
+$bg = Mage::getStoreConfig('themeoptions_general/newsletter/background', $storeId);
+$mediaurl = Mage::getBaseUrl('media') . 'theming/';
+$wrapper = '';
+if($bg){
+	$wrapper = $mediaurl.$bg;
+}
+$popupWidth = Mage::getStoreConfig('themeoptions_general/newsletter/popupwidth', $storeId);
+$popupHeight = Mage::getStoreConfig('themeoptions_general/newsletter/popupheight', $storeId);
+$popup_content = Mage::getStoreConfig('themeoptions_general/newsletter/popup_content', $storeId);
+$newsletterCookie = Mage::getModel('core/cookie')->get("novaworks_newsletter_popup");
+$route = Mage::app()->getRequest()->getRouteName(); 
+$pageidentifier = Mage::getSingleton('cms/page')->getIdentifier();
+if(!$newsletterCookie && ($route == 'cms' && $pageidentifier == 'home')): ?>
+	<section class="block-subscribe-popup" id="popup-newsletter" style="width:<?php echo $popupWidth; ?>px; height:<?php echo $popupHeight; ?>px; <?php if($bg){echo ' background-image:url('.$wrapper.');';} ?>">
+		<div class="indent">
+			<h3><?php echo $this->__('Newsletter'); ?></h3> 
+			<form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
+				<div class="block-content">
+
+					<label for="newsletter"><?php echo $popup_content; ?></label>
+					<div class="input-box">
+						<input type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
+						<button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
+						<div class="clear"></div>
+					</div>
+					<label class="subscribe-bottom"><input type="checkbox"><?php echo $this->__('Don’t show this popup again'); ?></label>
+				</div>
+			</form>
+			<script type="text/javascript">
+			//<![CDATA[
+				var searchForm = new Varien.searchForm('newsletter-validate-detail', 'newsletter', '<?php echo $this->__('Enter your email') ?>');
+				var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+			//]]>
+			</script>
+		</div>
+		<div class="clear"></div>
+	</section>
+	<script type="text/javascript">
+		function popupNewsletter() {
+			jQuery.fancybox({
+				padding: '0px',
+				autoScale: true,
+				transitionIn: 'fade',
+				transitionOut: 'fade',
+				showCloseButton: false,
+				type: 'inline',
+				href: '#popup-newsletter'
+			});
+			jQuery('#popup-newsletter').trigger('click');
+		}
+		
+		
+		isSuccess = jQuery('ul.messages li.success-msg').length;
+		subscribeFlag = jQuery.cookie('novaworks_newsletter_popup_flag');
+		
+		function subsSetcookie(){
+			jQuery.cookie('novaworks_newsletter_popup', 'true', {
+				expires: <?php echo $expires; ?>,
+				path: '/'
+			});
+		}
+		
+		if(!(subscribeFlag && isSuccess)){
+			popupNewsletter();
+		}else{
+			jQuery.removeCookie('novaworks_newsletter_popup_flag', { path: '/' });
+			subsSetcookie();
+		}
+		
+		jQuery('#popup-newsletter').parents('.fancybox-wrap').addClass('subscribe-fancy').next('.fancybox-overlay').addClass('subscribe-fancy');
+		
+		jQuery('#popup-newsletter .subscribe-bottom input').on('click', function(){
+			if(jQuery(this).parent().find('input:checked').length){
+				subsSetcookie();
+			} else {
+				jQuery.removeCookie('novaworks_newsletter_popup', { path: '/' });
+			}
+		});
+		
+		jQuery('#popup-newsletter .input-box button.button').on('click', function(){
+			var button = jQuery(this);
+			setTimeout(function(){
+				if(!button.parent().find('input#newsletter').hasClass('validation-failed')){
+					jQuery.cookie('novaworks_newsletter_popup_flag', 'true', {
+						path: '/'
+					});
+				}
+			}, 500);
+		});
+	</script> 
+<?php endif;

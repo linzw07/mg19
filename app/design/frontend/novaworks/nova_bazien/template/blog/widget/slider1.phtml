@@ -1,0 +1,69 @@
+<?php if ($posts = $this->getRecent()): ?>
+<div class="blog-slider1">
+<div class="row">
+	<div class="col-md-12">
+		<div class="arw_tab_title blog_tab_title">
+			<div class="tab_title">
+				<h2 class="title"><?php echo $this->getWidgetTitle(); ?></h2>
+				<p class=""></p>
+			</div>
+			<div class="tab_sub_title">
+				<h2 class="title"><?php echo $this->getWidgetSubTitle(); ?></h2>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="spb_posts_carousel_widget">
+		<div class="spb_wrapper carousel-wrap">
+			<div id="latest-post" class="owl-carousel hidden-buttons">
+            <?php foreach ($posts as $post): ?>
+            <div class="clearfix carousel-item recent-post">
+	            <?php if($img = $post->getPostImage(1100,733)): ?>
+	            <figure>
+		            <a class="link-to-post" href="<?php echo $post->getAddress(); ?>">
+			            <div class="overlay">
+				            <div class="thumb-info">
+					            <i class="fa fa-file-text-alt"></i>
+					        </div>
+					    </div>
+					    <img width="270" height="205" alt="<?php echo $post->getTitle(); ?>" src="<?php echo Mage::getBaseUrl('media').$img; ?>">
+		            </a>
+	            </figure>
+	            <?php endif; ?>
+	            <div class="details-wrap">	
+					<h5><a href="<?php echo $post->getAddress(); ?>"><?php echo $post->getTitle(); ?></a></h5>	            
+		            <div class="post-details"><?php echo Mage::helper('blog')->__('Post by'); ?> <span><?php echo $post->getUser(); ?></span> <?php echo Mage::helper('blog')->__('on'); ?> <?php echo Mage::helper('core')->formatDate($post->getCreatedTime(),'medium', false); ?></div>	
+		            <div class="blog-excerpt"><p><?php echo $post->getShortContent(); ?></p></div>
+		        </div>
+	        </div>
+            <?php endforeach; ?>
+			</div>	
+		</div> 
+	</div> 
+</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	jQuery(document).ready(function($) {
+		jQuery("#latest-post").owlCarousel({
+			items : 4, //10 items above 1000px browser width
+	    	itemsDesktop : [1024,4], //5 items between 1024px and 901px
+	      	itemsDesktopSmall : [900,3], // 3 items betweem 900px and 601px
+	      	itemsTablet: [600,2], //2 items between 600 and 0;
+	      	itemsMobile : [320,1],
+	      	navigation : true,
+	      	navigationText : ["",""],
+	      	slideSpeed : 500,
+	      	pagination : true
+    	});
+	}); 
+//]]>
+</script>
+<?php endif; ?>
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+									<themeoptions_general translate="title" module="themeoptions">
+										<title>General</title>
+										<sort_order>100</sort_order> 
+									</themeoptions_general>                
+				                    <themeoptions_homepage translate="title" module="themeoptions">
+				                      	<title>Home Slideshow</title>
+				                      	<sort_order>200</sort_order>
+				                    </themeoptions_homepage>  
+				                    <themeoptions_homepage_content translate="title" module="themeoptions">
+				                      	<title>Home Content</title>
+				                      	<sort_order>300</sort_order>
+				                    </themeoptions_homepage_content>                                     
+ 									<themeoptions_theming translate="title" module="themeoptions">
+										<title>Themeing</title>
+										<sort_order>400</sort_order> 
+				                    </themeoptions_theming>     
+				                   	<themeoptions_colors_styles translate="title" module="themeoptions">
+										<title>Colors And Styles</title>
+										<sort_order>500</sort_order> 
+				                    </themeoptions_colors_styles>     
+				                   	<themeoptions_background_images translate="title" module="themeoptions">
+										<title>Background Images</title>
+										<sort_order>600</sort_order> 
+				                    </themeoptions_background_images>    				                                    
+				               </children>
+				           </config>
+		                </children>
+		            </system>
+		        </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

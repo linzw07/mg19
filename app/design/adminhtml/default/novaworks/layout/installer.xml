@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout>
+    <installer_adminhtml_installerform_index>
+        <update handle="installer_installerform_index"/>
+        <reference name="content">
+            <block type="adminhtml/template" name="myform" template="installer/installerform.phtml"/>
+        </reference>
+    </installer_adminhtml_installerform_index>
+    <installer_adminhtml_guide_index>
+        <update handle="installer_guide_index"/>
+        <reference name="content">
+            <block type="installer/adminhtml_guide" name="installer_guide"/>
+        </reference>
+        <reference name="left">
+            <block type="installer/adminhtml_tabs" name="installer_tabs">
+                <block type="installer/adminhtml_tab_main" name="installer_tab_main"/>
+                <action method="addTab"><name>info_section</name><block>installer_tab_main</block></action>
+            </block>
+        </reference>        
+    </installer_adminhtml_guide_index>
+</layout>

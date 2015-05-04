@@ -1,0 +1,134 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+ $storeId = Mage::app()->getStore()->getStoreId();
+ $routeName = Mage::app()->getRequest()->getRouteName();  
+ $controller = Mage::app()->getRequest()->getControllerName();
+ $action = Mage::app()->getRequest()->getActionName();
+ $header_transparent	= Mage::getStoreConfig('themeoptions_theming/theme_header/header_transparent', $storeId);
+ $identifier = Mage::getSingleton('cms/page')->getIdentifier();  
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="header-shadow '.$this->getBodyClass().'"':'' ?>>
+<div id="notification"></div>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+ <?php
+if($identifier != Mage::getStoreConfig('web/default/cms_home_page',$storeId) && $header_transparent == 1):
+	$parallax_title = '';
+	if($routeName == 'contacts') {
+		$parallax_title = Mage::helper('contacts')->__('Contact Us');
+	}
+	if(Mage::registry('current_category') || Mage::registry('current_product')) {
+	    $_helper    = $this->helper('catalog/output');
+	    $_category  = Mage::registry('current_category');
+	    if($_category) {
+	    	$parallax_bg   = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'wysiwyg/bazien/default-transparent-bg.jpg';
+		    if ($_imgUrl = $_category->getImageUrl()) {
+		        $parallax_bg = $_imgUrl;
+		    }
+	    	$parallax_title = $this->htmlEscape($_category->getName());
+	    }else{
+		    $parallax_bg   = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'wysiwyg/bazien/default-transparent-bg.jpg';
+	    }
+	}else {
+		$parallax_bg   = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'wysiwyg/bazien/default-transparent-bg.jpg';
+	}
+?>
+<!-- Parallax Page Title
+============================================= -->
+<div class="parallax-box parrallax-page-title alt-bg" style="background-image: url('<?php echo $parallax_bg ?>'); background-size: cover;" data-stellar-background-ratio="0.4">
+
+    <div class="parallax-title-content">
+	    <h1><?php echo $parallax_title ?></h1>
+	    <?php echo $this->getChildHtml('breadcrumbs') ?>
+        </div>
+
+</div>
+<!-- #Parallax Page Title end -->
+<?php endif?>  
+        <div class="main-container col1-layout home-content-container">
+ 
+<div class="header-background-default">
+<?php if($header_transparent == 0) { ?>
+<?php if(Mage::registry('current_category') && !Mage::registry('product')):
+ $_helper    = $this->helper('catalog/output');
+ $_category  = Mage::registry('current_category');
+ $_imgHtml   = '';
+    if ($_imgUrl = $_category->getImageUrl()) {
+        $_imgHtml = '<img src="'.$_imgUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" title="'.$this->htmlEscape($_category->getName()).'" />';
+        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+    }
+ 
+?>	
+	<div class="container">
+		<div class="header-content-title<?php if($_imgHtml): echo "-absolute"; endif?>">
+	    	<h1><?php echo $this->htmlEscape($_category->getName()) ?></h1>
+	    </div>
+	    <?php echo $this->getChildHtml('breadcrumbs') ?>
+	    <?php echo $_imgHtml; ?>
+
+	</div>
+	<?php else:?>	
+	<div class="container">
+	    <?php echo $this->getChildHtml('breadcrumbs') ?>
+
+	</div>
+	<?php endif?>  	
+	<?php }?>
+      	
+</div>
+
+
+        <div class="novaworks-main-content">      	
+            <div class="main home-content container">
+				<div class="row columns-layout">
+                    <div class="col-main col-md-12">
+                        <?php echo $this->getChildHtml('global_messages') ?>
+                        <?php echo $this->getChildHtml('content') ?>
+                    </div>
+            	</div>
+            </div>
+        </div>
+        </div>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

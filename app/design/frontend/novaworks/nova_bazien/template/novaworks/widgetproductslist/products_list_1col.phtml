@@ -1,0 +1,39 @@
+<?php
+$storeId = Mage::app()->getStore()->getStoreId();
+$ajax_cart		 		= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_cart', $storeId); 
+$image_product_hover 	= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/image_product_hover', $storeId);
+$rating_wishlist_compare	 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/rating_wishlist_compare', $storeId); 
+$quick_view	 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_quickview', $storeId);  
+$thumb_width =  Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_width', $storeId);
+$thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_height', $storeId);
+$_productCollection=$this->getProductCollection();
+$r = $this->getFrontendHash();
+$_helper = $this->helper('catalog/output');
+?>
+<div class="col-left sidebar">
+	<div class="block block-list block-viewed">
+		<div class="block-title" id="block-viewed">
+		        <strong><span><?php echo $this->getWidgetTitle();?></span></strong>
+		</div>
+	   <div class="block-content">
+			<ol id="recently-viewed-items">
+			<?php $i=0; foreach ($_productCollection as $_product): ?>
+			                    <li class="item">
+			            	<div class="product-img">
+			            		<a href="<?php echo $_product->getProductUrl() ?>"><img alt="<?php echo $this->htmlEscape($_product->getName()) ?>" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>"></a>
+			            	</div>
+			                <p class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></p>
+			                
+			
+			                
+			   <?php echo $this->getPriceHtml($_product, true) ?>
+			
+			            </li>
+			 <?php endforeach; ?>         
+			                </ol>
+			               
+                
+	   </div>
+	</div>
+</div>
+

@@ -1,0 +1,8 @@
+<!== Parallax Box =============================================>
+<div class="parallax-box alt-bg" style="background-image: url('<?php echo $this->getImageUrl() ?>'); background-size: cover;  background-position: center center; min-height:<?php echo $this->getBoxHeight() ?>px; margin-bottom: <?php echo $this->getBoxMargin() ?>px;" data-stellar-background-ratio="0.4">
+	<div class="parallax-content">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($this->getBlockId())->toHtml();?>
+	</div>
+</div>
+        
+<!== Parallax Box end =============================================>

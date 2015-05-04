@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Lero9_Mfshipping>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Lero9_Mfshipping>
+    </modules>
+</config>

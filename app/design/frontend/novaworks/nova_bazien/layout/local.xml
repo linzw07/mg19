@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     novaworks_default
+ * @copyright   Copyright (c) 2012 Novaworks. (http://www.novaworks.net)
+ */
+
+-->
+<layout version="0.1.0">
+
+    <default>
+        <reference name="root">
+            <action method="addBodyClass" ifconfig="themeoptions_general/newsletter/formobile"><classname>popup-mobile</classname></action>
+            <action method="addBodyClass" ifconfig="themeoptions_general/newsletter/fortablet"><classname>popup-tablet</classname></action> 
+            <action method="addBodyClass" ifconfig="themeoptions_theming/theme_header/header_transparent"><classname>header-transparent</classname></action>     
+            <action method="addBodyClass" ifconfig="themeoptions_theming/theme_header/custom_header" condition="custom-header-3"><classname>header-3</classname></action>     
+        </reference>    
+        <reference name="head">
+            <!--Adding "Fancybox-->
+            <action method="addCss"><stylesheet helper="themeoptions/get_fancy_css" /></action>
+            <action method="addItem"><type>skin_js</type><name helper="themeoptions/get_fancy_js" /></action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="newsletter/subscribe" name="newsletter_popup" as="newsletter_popup">
+                <action method="setTemplate">
+                    <template helper="themeoptions/get_newsletter_popup" />
+                </action>
+            </block>
+        </reference>
+    </default>
+
+</layout>

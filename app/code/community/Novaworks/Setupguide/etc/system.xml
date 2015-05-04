@@ -1,0 +1,317 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <novaworks translate="label">
+            <label>Novaworks</label>
+            <sort_order>200</sort_order>
+        </novaworks>
+    </tabs>
+    	
+    <sections>
+        <setupguide translate="label" module="setupguide">
+            <label>Setup Guide</label>
+            <tab>novaworks</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>0</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+            <install_theme translate="label">
+					<label>Active Theme</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+		                <status translate="label comment" module="setupguide">
+		                    <label>Status</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_status</frontend_model>
+		                    <sort_order>10</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </status>
+		                <html_content translate="label comment" module="setupguide">
+		                    <label>HTML Content</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_installtheme</frontend_model>
+		                    <sort_order>20</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </html_content>	
+                        <button_act translate="label">
+                            <label>Button Action</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/activethemebutton</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonact</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_act>	
+                         <button_guide translate="label">
+                            <label>Button Guide</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/activethemebuttonguide</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonguide</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can read more and watch helpful video tutorials below:</comment>
+                        </button_guide>	                       	                	                
+					</fields>
+            </install_theme>
+            <import_blocks translate="label">
+					<label>Import Static Blocks</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+		                <status translate="label comment" module="setupguide">
+		                    <label>Status</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_statusblocks</frontend_model>
+		                    <sort_order>10</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </status>
+		                <html_content translate="label comment" module="setupguide">
+		                    <label>HTML Content</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_installtheme</frontend_model>
+		                    <sort_order>20</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </html_content>	
+                        <button_act translate="label">
+                            <label>Button Action</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/importblocks</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonact</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_act>	
+                         <button_guide translate="label">
+                            <label>Button Guide</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/activethemebuttonguide</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonguide</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can read more and watch helpful video tutorials below:</comment>
+                        </button_guide>	                       	                	                
+					</fields>
+            </import_blocks>    
+            <import_pages translate="label">
+					<label>Import CMS Pages</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+		                <status translate="label comment" module="setupguide">
+		                    <label>Status</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_statuspages</frontend_model>
+		                    <sort_order>10</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </status>
+		                <html_content translate="label comment" module="setupguide">
+		                    <label>HTML Content</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_installtheme</frontend_model>
+		                    <sort_order>20</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </html_content>	
+                        <button_act translate="label">
+                            <label>Button Action</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/importpages</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonact</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_act>	
+                         <button_guide translate="label">
+                            <label>Button Guide</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/activethemebuttonguide</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonguide</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can read more and watch helpful video tutorials below:</comment>
+                        </button_guide>	                       	                	                
+					</fields>
+            </import_pages>      
+            <import_tabs translate="label">
+					<label>Import Product Tabs</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>40</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+		                <status translate="label comment" module="setupguide">
+		                    <label>Status</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_statustabs</frontend_model>
+		                    <sort_order>10</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </status>
+		                <html_content translate="label comment" module="setupguide">
+		                    <label>HTML Content</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_installtheme</frontend_model>
+		                    <sort_order>20</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </html_content>	
+                        <button_act translate="label">
+                            <label>Button Action</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/importtabs</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonact</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_act>	
+                         <button_guide translate="label">
+                            <label>Button Guide</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/activethemebuttonguide</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonguide</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can read more and watch helpful video tutorials below:</comment>
+                        </button_guide>	                       	                	                
+					</fields>
+            </import_tabs>   
+             <import_slider translate="label">
+					<label>Import Sliders</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+		                <status translate="label comment" module="setupguide">
+		                    <label>Status</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_statusslider</frontend_model>
+		                    <sort_order>10</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </status>
+		                <html_content translate="label comment" module="setupguide">
+		                    <label>HTML Content</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_installtheme</frontend_model>
+		                    <sort_order>20</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </html_content>	
+                        <button_act translate="label">
+                            <label>Button Action</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/importslider</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonact</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_act>	
+                         <button_guide translate="label">
+                            <label>Button Guide</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/activethemebuttonguide</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonguide</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can read more and watch helpful video tutorials below:</comment>
+                        </button_guide>	                       	                	                
+					</fields>
+            </import_slider>  
+             <add_slider translate="label">
+					<label>Add Slider to home page</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>60</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+		                <status translate="label comment" module="setupguide">
+		                    <label>Status</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_statusslider</frontend_model>
+		                    <sort_order>10</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </status>
+		                <html_content translate="label comment" module="setupguide">
+		                    <label>HTML Content</label>
+		                    <frontend_type>text</frontend_type>
+		                    <frontend_model>setupguide/system_config_form_fieldset_installtheme</frontend_model>
+		                    <sort_order>20</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                </html_content>	
+                        <button_act translate="label">
+                            <label>Button Action</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/addslider</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonact</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_act>	
+                         <button_guide translate="label">
+                            <label>Button Guide</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>setupguide/activethemebuttonguide</source_model>
+                            <frontend_model>setupguide/system_config_form_field_buttonguide</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can read more and watch helpful video tutorials below:</comment>
+                        </button_guide>	                       	                	                
+					</fields>
+            </add_slider>                                                             
+            </groups>
+        </setupguide>
+    </sections>
+</config>

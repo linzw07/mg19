@@ -1,0 +1,5 @@
+<?php
+class Novaworks_CustomWidgets_Block_Widget_Catwall extends Novaworks_CustomWidgets_Block_Catwall implements Mage_Widget_Block_Interface
+{
+
+}

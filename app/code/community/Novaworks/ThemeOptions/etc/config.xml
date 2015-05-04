@@ -1,0 +1,495 @@
+<config>
+    <modules>
+        <Novaworks_ThemeOptions>
+            <version>0.1.0</version>
+        </Novaworks_ThemeOptions>
+    </modules>
+    <frontend>
+        <routers>
+            <themeoptions>
+                <use>standard</use>
+                <args>
+                    <module>Novaworks_ThemeOptions</module>
+                    <frontName>themeoptions</frontName>
+                </args>
+            </themeoptions>
+        </routers>
+        <layout>
+            <updates>
+                <themeoptions>
+                    <file>themeoptions.xml</file>
+                </themeoptions>
+            </updates>
+        </layout>
+    </frontend>    
+    <global>
+        <models>
+            <themeoptions>
+                <class>Novaworks_ThemeOptions_Model</class>
+            </themeoptions>
+        </models>
+        <blocks>
+            <themeoptions>
+                <class>Novaworks_ThemeOptions_Block</class>
+            </themeoptions>
+            <themeoptions_homepage><class>ThemeOptions_ExtraConfig_Block</class></themeoptions_homepage>  
+            <themeoptions_theming><class>ThemeOptions_ExtraConfig_Block</class></themeoptions_theming>            
+        </blocks>
+        <helpers>
+            <themeoptions>
+                <class>Novaworks_ThemeOptions_Helper</class>
+            </themeoptions>           
+        </helpers>
+    <events>
+      <adminhtml_controller_action_predispatch_start>
+        <observers>
+          <novaworks_themeoptions_observer>
+            <type>singleton</type>
+            <class>Novaworks_ThemeOptions_Controller_Observer</class>
+            <method>overrideTheme</method>
+          </novaworks_themeoptions_observer>
+        </observers>
+      </adminhtml_controller_action_predispatch_start>      
+    </events> 
+	<resources>
+        <novaworks_themeoptions_setup>
+                <setup>
+                    <module>Novaworks_ThemeOptions</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>          
+        </novaworks_themeoptions_setup>
+    </resources>  
+     <page>
+      <layouts>
+        <page_fullwidth translate="label">
+          <label>Page Full Width</label>
+          <template>page/page-fullwidth.phtml</template>
+          <layout_handle>page-fullwidth</layout_handle>
+        </page_fullwidth>
+        <page_collections translate="label">
+          <label>Page Collections</label>
+          <template>page/page-collections.phtml</template>
+          <layout_handle>page-collections</layout_handle>
+        </page_collections>
+        <!-- add more layouts here -->
+      </layouts>
+    </page>            
+    </global>
+	<default>
+		<themeoptions_general>
+			<general_options>
+				<responsive_layout>1</responsive_layout>
+				<your_twitter_enable_disable>1</your_twitter_enable_disable>
+				<your_fb_enable_disable>1</your_fb_enable_disable>
+				<fb_skin>dark</fb_skin>
+				<gotop_button>1</gotop_button>
+			</general_options>
+            <menu>
+                <effect>fade</effect>
+                <home>1</home>
+                <enable_custom>1</enable_custom>
+                <static_identifier>custom_menu</static_identifier>
+                <show_if_no_children>0</show_if_no_children>
+                <label1>New</label1>
+                <label2>Hot!</label2>
+            </menu>
+			<prodcuts_list_page>
+				<layout_one_column>4</layout_one_column>
+				<layout_two_column>4</layout_two_column>
+				<layout_three_column>3</layout_three_column>
+				<standard_image_width>500</standard_image_width>
+				<standard_image_height>609</standard_image_height>
+				<shopping_options>1</shopping_options>
+				<rating_wishlist_compare>1</rating_wishlist_compare>
+				<new_product_label>1</new_product_label>
+				<sale_product_label>1</sale_product_label>
+				<image_product_hover>1</image_product_hover>
+			</prodcuts_list_page>
+			<product_details_page>
+				<product_main_width>570</product_main_width>
+				<product_main_height>694</product_main_height>
+				<product_thumbnail_width>161</product_thumbnail_width>
+				<product_thumbnail_height>196</product_thumbnail_height>
+			</product_details_page>
+			<newsletter>
+				<newsletter_status>1</newsletter_status>
+				<cookielifetime>30</cookielifetime>
+				<popupwidth>730</popupwidth>
+				<popupheight>425</popupheight>
+				<popup_content>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</popup_content>
+				<formobile>1</formobile>
+				<fortablet>1</fortablet>
+			</newsletter>
+		</themeoptions_general>
+		<themeoptions_homepage_content>
+			<homepagecontent>
+				<homerowamount>1</homerowamount>
+				<homeinfostype_1_1>1</homeinfostype_1_1>
+				<homecoltitle_1_1>New Product</homecoltitle_1_1>
+				<homeproductstype_1_1>new</homeproductstype_1_1>
+				<homesliderstype_1_1>1</homesliderstype_1_1>
+				<productseachrow_1_1>4</productseachrow_1_1>
+				<productsamount_1_1>10</productsamount_1_1>
+				<homeinfostype_1_2>1</homeinfostype_1_2>
+				<homecoltitle_1_2>New Product</homecoltitle_1_2>
+				<homeproductstype_1_2>new</homeproductstype_1_2>
+				<homesliderstype_1_2>1</homesliderstype_1_2>
+				<productseachrow_1_2>4</productseachrow_1_2>
+				<productsamount_1_2>10</productsamount_1_2>
+				<homeinfostype_1_3>1</homeinfostype_1_3>
+				<homecoltitle_1_3>New Product</homecoltitle_1_3>
+				<homeproductstype_1_3>new</homeproductstype_1_3>
+				<homesliderstype_1_3>1</homesliderstype_1_3>
+				<productseachrow_1_3>4</productseachrow_1_3>
+				<productsamount_1_3>10</productsamount_1_3>
+			</homepagecontent>
+		</themeoptions_homepage_content>		
+		<themeoptions_theming>
+			<design_layout>
+				<theme_layout>1</theme_layout>
+				<container_width>1170</container_width>
+			</design_layout>
+			<theme_fonts>
+				<body_font>Lato</body_font>
+				<body_font_size>14px</body_font_size>
+
+				<heading_and_product_font>Lato</heading_and_product_font>
+				<heading_and_product_weight>Normal</heading_and_product_weight>	
+				<heading_and_product_uppercase>uppercase</heading_and_product_uppercase>
+				<sub_heading_font>Playfair Display</sub_heading_font>
+
+				<price_font>Lato</price_font>
+
+				<button_font>Lato</button_font>
+				<button_font_weight>normal</button_font_weight>	
+				<button_font_uppercase>uppercase</button_font_uppercase>
+
+				<search_font>Lato</search_font>
+				<search_font_weight>normal</search_font_weight>	
+				<search_font_size>14px</search_font_size>
+				<search_font_uppercase>uppercase</search_font_uppercase>
+
+				<cart_font>Lato</cart_font>
+				<cart_font_weight>normal</cart_font_weight>	
+				<cart_font_size>14px</cart_font_size>
+				<cart_font_uppercase>none</cart_font_uppercase>
+
+				<main_menu_font>Lato</main_menu_font>
+				<main_menu_weight>normal</main_menu_weight>	
+				<main_menu_size>14px</main_menu_size>
+				<main_menu_uppercase>uppercase</main_menu_uppercase>
+	
+			</theme_fonts>	
+			<theme_header>
+				<header_transparent>0</header_transparent> 
+				<header_fixed>1</header_fixed>
+			</theme_header>
+			<theme_body>
+				<presets>1</presets>
+			</theme_body>																			
+		</themeoptions_theming>	
+				
+		<themeoptions_colors_styles>
+			<general_styles>
+				<body_background_color>#FFFFFF</body_background_color>
+
+				<heading_color>#202020</heading_color>
+				<body_text_color>#202020</body_text_color>
+				<light_text_color>#B6B6B6</light_text_color>
+				<other_link_color>#202020</other_link_color>
+				<links_color_hover>#EEB013</links_color_hover>
+				<selection_color>#FFFFFF</selection_color>
+				<selection_bg_color>#EEB013</selection_bg_color>
+
+				<main_background_color>#FFFFFF</main_background_color>
+				<main_border_size>0px</main_border_size>
+				<main_border_style>solid</main_border_style>
+				<main_border_color>#CCCCCC</main_border_color>
+				<main_border_shadow>1</main_border_shadow>
+
+				<content_background_color>#FFFFFF</content_background_color>
+				<headings_border_size>1px</headings_border_size>
+				<headings_border_style>solid</headings_border_style>
+				<headings_border_color>#EAEAEA</headings_border_color>
+
+				<sorter_border_size>1px</sorter_border_size>
+				<sorter_border_style>solid</sorter_border_style>
+				<sorter_border_color>#DFDFDF</sorter_border_color>
+
+				<left_column_heading_background_color>#FFFFFF</left_column_heading_background_color>
+				<left_column_heading_title_color>#202020</left_column_heading_title_color>
+
+				<left_column_heading_border_bottom_size>0px</left_column_heading_border_bottom_size>
+				<left_column_heading_border_bottom_style>solid</left_column_heading_border_bottom_style>
+				<left_column_heading_border_bottom_color>#EBEBEB</left_column_heading_border_bottom_color>
+
+				<left_column_box_background_color>#FFFFFF</left_column_box_background_color>
+				<left_column_link_color>#202020</left_column_link_color>
+				<left_column_link_color_hover>#EEB013</left_column_link_color_hover>
+
+				<right_column_heading_background_color>#FFFFFF</right_column_heading_background_color>
+				<right_column_heading_title_color>#202020</right_column_heading_title_color>
+
+				<right_column_heading_border_bottom_size>0px</right_column_heading_border_bottom_size>
+				<right_column_heading_border_bottom_style>solid</right_column_heading_border_bottom_style>
+				<right_column_heading_border_bottom_color>#EBEBEB</right_column_heading_border_bottom_color>
+
+				<right_column_box_background_color>#FFFFFF</right_column_box_background_color>
+				<right_column_link_color>#202020</right_column_link_color>
+				<right_column_link_color_hover>#EEB013</right_column_link_color_hover>
+
+				<category_box_heading_background_color>#FFFFFF</category_box_heading_background_color>
+				<category_box_heading_title_color>#202020</category_box_heading_title_color>
+
+				<category_box_heading_border_bottom_size>0px</category_box_heading_border_bottom_size>
+				<category_box_heading_border_bottom_style>solid</category_box_heading_border_bottom_style>
+				<category_box_heading_border_bottom_color>#EBEBEB</category_box_heading_border_bottom_color>
+
+				<category_box_background_color>#FFFFFF</category_box_background_color>
+				<category_box_background_color_hover>#FFFFFF</category_box_background_color_hover>
+				<category_box_link_color>#202020</category_box_link_color>
+				<category_box_link_color_hover>#EEB013</category_box_link_color_hover>
+
+				<category_box_separator_size>1px</category_box_separator_size>
+				<category_box_separator_style>solid</category_box_separator_style>
+				<category_box_separator_color>#FFFFFF</category_box_separator_color>
+
+				<filter_box_heading_background_color>#FFFFFF</filter_box_heading_background_color>
+				<filter_box_heading_title_color>#202020</filter_box_heading_title_color>
+
+				<filter_box_heading_border_bottom_size>0px</filter_box_heading_border_bottom_size>
+				<filter_box_heading_border_bottom_style>solid</filter_box_heading_border_bottom_style>
+				<filter_box_heading_border_bottom_color>#EBEBEB</filter_box_heading_border_bottom_color>
+
+				<filter_box_background_color>#FFFFFF</filter_box_background_color>
+				<filter_box_link_color>#202020</filter_box_link_color>
+				<filter_box_link_color_hover>#EEB013</filter_box_link_color_hover>
+
+			</general_styles>
+
+			<header_style> 
+				<header_background_color>transparent</header_background_color>
+				<header_fixed_background_color>#FFFFFF</header_fixed_background_color>
+				
+				<header_top_bar_backbround_color>transparent</header_top_bar_backbround_color>
+
+				<header_top_bar_border_top_size>0px</header_top_bar_border_top_size>
+				<header_top_bar_border_top_style>solid</header_top_bar_border_top_style>
+				<header_top_bar_border_top_color>#EEB013</header_top_bar_border_top_color>
+
+				<header_top_bar_border_bottom_size>0px</header_top_bar_border_bottom_size>
+				<header_top_bar_border_bottom_style>solid</header_top_bar_border_bottom_style>
+				<header_top_bar_border_bottom_color>#EEB013</header_top_bar_border_bottom_color>
+				
+				<header_top_bar_text_color>#202020</header_top_bar_text_color>
+				<header_top_bar_link_color>#C2C2C2</header_top_bar_link_color>
+				<header_top_bar_link_color_hover>#EEB013</header_top_bar_link_color_hover>
+				<header_top_bar_separator_color>#303030</header_top_bar_separator_color>
+				<header_top_bar_dropdowns_background_color>#202020</header_top_bar_dropdowns_background_color>
+				<header_top_bar_dropdowns_background_color_hover>#202020</header_top_bar_dropdowns_background_color_hover>
+				<header_top_bar_dropdowns_link_color>#C2C2C2</header_top_bar_dropdowns_link_color>
+				<header_top_bar_dropdowns_link_color_hover>#EEB013</header_top_bar_dropdowns_link_color_hover>
+
+				<header_search_bar_backbround_color>#F3F3F3</header_search_bar_backbround_color>
+				<header_search_bar_border_color>#DFDFDF</header_search_bar_border_color>
+				<header_search_bar_border_color_hover>#DFDFDF</header_search_bar_border_color_hover>
+				<header_search_bar_text_color>#464646</header_search_bar_text_color>
+
+
+				<header_cart_conten_background_color>#202020</header_cart_conten_background_color>
+				<header_cart_conten_text_color>#FFFFFF</header_cart_conten_text_color>
+				<header_cart_conten_text_color_hover>#EEB013</header_cart_conten_text_color_hover>
+
+				<header_cart_section_text_color>#202020</header_cart_section_text_color>
+				<header_cart_section_active_color>#EEB013</header_cart_section_active_color>
+
+			</header_style>
+
+			<main_menu_style>
+				<main_menu_bar_background_color>transparent</main_menu_bar_background_color>
+
+				<main_menu_bar_separator_size>0px</main_menu_bar_separator_size>
+				<main_menu_bar_separator_style>solid</main_menu_bar_separator_style>
+				<main_menu_bar_separator_color>#4F4F4F</main_menu_bar_separator_color>
+
+				<main_menu_bar_border_top_size>0px</main_menu_bar_border_top_size>
+				<main_menu_bar_border_top_style>solid</main_menu_bar_border_top_style>
+				<main_menu_bar_border_top_color>#EEEEEE</main_menu_bar_border_top_color>
+
+				<main_menu_bar_border_bottom_size>0px</main_menu_bar_border_bottom_size>
+				<main_menu_bar_border_bottom_style>solid</main_menu_bar_border_bottom_style>
+				<main_menu_bar_border_bottom_color>#EEEEEE</main_menu_bar_border_bottom_color>
+
+				<home_page_link_background_color>transparent</home_page_link_background_color>
+				<home_page_link_background_color_hover>transparent</home_page_link_background_color_hover>
+				<home_page_link_color>#202020</home_page_link_color>
+				<home_page_link_color_hover>#EEB013</home_page_link_color_hover>
+
+				<categories_section_background_color>transparent</categories_section_background_color>
+				<categories_section_background_color_hover>transparent</categories_section_background_color_hover>
+				<categories_section_color>#202020</categories_section_color>
+				<categories_section_color_hover>#EEB013</categories_section_color_hover>
+
+				<block_menu_link_background_color>transparent</block_menu_link_background_color>
+				<block_menu_link_background_color_hover>transparent</block_menu_link_background_color_hover>
+				<block_menu_link_color>#202020</block_menu_link_color>
+				<block_menu_link_color_hover>#EEB013</block_menu_link_color_hover>
+
+				<sub_menu_background_color>#202020</sub_menu_background_color>
+				<sub_menu_background_color_hover>transparent</sub_menu_background_color_hover>
+				<sub_menu_heading_background_color>transparent</sub_menu_heading_background_color>
+				<sub_menu_heading_text_color>#EEB013</sub_menu_heading_text_color>
+				<sub_menu_text_color>#C2C2C2</sub_menu_text_color>
+				<sub_menu_link_color>#C2C2C2</sub_menu_link_color>
+				<sub_menu_link_color_hover>#EEB013</sub_menu_link_color_hover>
+
+				<sub_menu_separator_size>1px</sub_menu_separator_size>
+				<sub_menu_separator_style>solid</sub_menu_separator_style>
+				<sub_menu_separator_color>#EEEEEE</sub_menu_separator_color>
+
+				<sub_menu_shadow_style>0</sub_menu_shadow_style>
+				<mobile_main_menu_bar_background_color>#424242</mobile_main_menu_bar_background_color>
+				<mobile_main_menu_bar_background_color_hover>#EEB013</mobile_main_menu_bar_background_color_hover>
+				<mobile_main_menu_bar_text_color>#FFFFFF</mobile_main_menu_bar_text_color>
+
+			</main_menu_style>
+
+			<price_style>
+				<price_color>#202020</price_color>
+				<old_price_color>#202020</old_price_color>
+				<new_price_color>#202020</new_price_color>
+				<tex_price_color>#202020</tex_price_color>
+
+			</price_style>
+
+			<buttons_style>
+				<button_border_radius>0px</button_border_radius>
+
+				<buttons_background_1>#EEB013</buttons_background_1>
+				<buttons_background_hover_1>#202020</buttons_background_hover_1>
+				<buttons_text_color_1>#FFFFFF</buttons_text_color_1>
+				<buttons_text_color_hover_1>#FFFFFF</buttons_text_color_hover_1>
+
+				<buttons_background_2>#EEB013</buttons_background_2>
+				<buttons_background_hover_2>#202020</buttons_background_hover_2>
+				<buttons_text_color_2>#FFFFFF</buttons_text_color_2>
+				<buttons_text_color_hover_2>#FFFFFF</buttons_text_color_hover_2>
+
+				<buttons_background_3>#202020</buttons_background_3>
+				<buttons_background_hover_3>#EEB013</buttons_background_hover_3>
+				<buttons_text_color_3>#FFFFFF</buttons_text_color_3>
+				<buttons_text_color_hover_3>#FFFFFF</buttons_text_color_hover_3>
+
+				<buttons_background_4>#202020</buttons_background_4>
+				<buttons_background_hover_4>#EEB013</buttons_background_hover_4>
+
+			</buttons_style>
+
+			<midsection_style>
+				<product_box_background_color_hover>#FFFFFF</product_box_background_color_hover>
+				<product_box_shadow_style>1</product_box_shadow_style>
+
+				<product_box_new_background>#EEB013</product_box_new_background>
+				<product_box_new_text>#FFFFFF</product_box_new_text>
+				<product_box_sale_background>#EEB013</product_box_sale_background>
+				<product_box_sale_text>#FFFFFF</product_box_sale_text>
+
+				<menu_box_new_background>#202020</menu_box_new_background>
+				<menu_box_new_text>#FFFFFF</menu_box_new_text>
+				<menu_box_hot_background>#EEB013</menu_box_hot_background>
+				<menu_box_hot_text>#FFFFFF</menu_box_hot_text>
+
+				<product_page_tabs_background>transparent</product_page_tabs_background>
+				<product_page_tabs_selected>transparent</product_page_tabs_selected>
+				<product_page_tabs_text>#202020</product_page_tabs_text>
+				<product_page_tabs_text_hover>#EEB013</product_page_tabs_text_hover>
+
+				<slider_home_page_tparrows>#E8E8E8</slider_home_page_tparrows>
+				<slider_home_page_tparrows_hover>#202020</slider_home_page_tparrows_hover>
+				<slider_home_page_tparrows_active>#EEB013</slider_home_page_tparrows_active>
+				<rating_stars_img>stars10</rating_stars_img>
+			</midsection_style>
+
+			<footer_color_style>
+				<footer_a_block_background>#353535</footer_a_block_background>
+				<footer_a_block_titles_color>#464646</footer_a_block_titles_color>
+				<footer_a_block_titles_color_hover>#ED5053</footer_a_block_titles_color_hover>
+				<footer_a_block_subtitles_color>#B6B6B6</footer_a_block_subtitles_color>
+
+				<feature_box_1_icon_background_color>#4BB8E2</feature_box_1_icon_background_color>
+				<feature_box_1_icon_background_color_hover>#4BB8E2</feature_box_1_icon_background_color_hover>
+
+				<feature_box_2_icon_background_color>#ED5053</feature_box_2_icon_background_color>
+				<feature_box_2_icon_background_color_hover>#ED5053</feature_box_2_icon_background_color_hover>
+
+				<feature_box_3_icon_background_color>#FFCA00</feature_box_3_icon_background_color>
+				<feature_box_3_icon_background_color_hover>#FFCA00</feature_box_3_icon_background_color_hover>
+
+				<feature_box_4_icon_background_color>#9AE24B</feature_box_4_icon_background_color>
+				<feature_box_4_icon_background_color_hover>#9AE24B</feature_box_4_icon_background_color_hover>
+
+				<footer_b_block_background>#373737</footer_b_block_background>
+				<footer_b_block_titles>#FFFFFF</footer_b_block_titles>
+
+				<footer_b_block_border_bottom_size>1px</footer_b_block_border_bottom_size>
+				<footer_b_block_border_bottom_style>solid</footer_b_block_border_bottom_style>
+				<footer_b_block_border_bottom_color>#444444</footer_b_block_border_bottom_color>
+
+				<footer_b_block_text_color>#8C8C8C</footer_b_block_text_color>
+				<footer_b_block_link_color>#4BB8E2</footer_b_block_link_color>
+				<footer_b_block_link_color_hover>#FFFFFF</footer_b_block_link_color_hover>
+				<footer_b_block_background_icon_color>#525252</footer_b_block_background_icon_color>
+
+				<footer_b_block_border_top_size>0px</footer_b_block_border_top_size>
+				<footer_b_block_border_top_style>solid</footer_b_block_border_top_style>
+				<footer_b_block_border_top_color>#000000</footer_b_block_border_top_color>
+
+				<footer_c_block_background>#353535</footer_c_block_background>
+				<footer_c_block_titles>#FFFFFF</footer_c_block_titles>
+
+				<footer_c_border_bottom_size>1px</footer_c_border_bottom_size>
+				<footer_c_border_bottom_style>solid</footer_c_border_bottom_style>
+				<footer_c_border_bottom_color>#444444</footer_c_border_bottom_color>
+
+				<footer_c_block_link_color>#8C8C8C</footer_c_block_link_color>
+				<footer_c_block_link_color_hover>#EEB013</footer_c_block_link_color_hover>
+
+				<footer_c_block_border_top_size>1px</footer_c_block_border_top_size>
+				<footer_c_block_border_top_style>solid</footer_c_block_border_top_style>
+				<footer_c_block_border_top_color>#464646</footer_c_block_border_top_color>
+
+				<footer_d_payment_background>#353535</footer_d_payment_background>
+
+				<footer_d_payment_text_color>#7b7b7b</footer_d_payment_text_color>
+				<footer_d_payment_link_color>#EEB013</footer_d_payment_link_color>
+				<footer_d_payment_link_color_hover>#FFFFFF</footer_d_payment_link_color_hover>
+
+				<footer_d_border_top_size>1px</footer_d_border_top_size>
+				<footer_d_border_top_style>solid</footer_d_border_top_style>
+				<footer_d_border_top_color>#444444</footer_d_border_top_color>
+
+				<footer_e_block_background>#353535</footer_e_block_background>
+
+				<footer_e_block_text_color>#7b7b7b</footer_e_block_text_color>
+				<footer_e_block_link_color>#EEB013</footer_e_block_link_color>
+				<footer_e_block_link_color_hover>#FFFFFF</footer_e_block_link_color_hover>
+
+				<footer_e_border_top_size>1px</footer_e_border_top_size>
+				<footer_e_border_top_style>solid</footer_e_border_top_style>
+				<footer_e_border_top_color>#464646</footer_e_border_top_color>
+
+			</footer_color_style>
+
+		</themeoptions_colors_styles>
+
+		<themeoptions_background_images>
+			<body_background>
+				<body_pattern>p1</body_pattern>
+			</body_background>
+		</themeoptions_background_images>	
+
+	</default>
+</config>
